@@ -1,0 +1,200 @@
+Robot 1:
+
+MODULE MainModule
+	CONST robtarget p10:=[[416.53,-1.06,541.41],[0.190705,1.87491E-05,0.981647,-2.09342E-05],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p20:=[[450.56,15.60,303.92],[0.19062,-2.37007E-05,0.981664,-1.69293E-05],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p30:=[[498.55,118.65,191.88],[0.367142,-0.332892,-0.649494,-0.57667],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p40:=[[491.85,245.94,191.86],[0.367127,-0.333012,-0.649457,-0.576651],[0,1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p50:=[[491.85,245.94,243.50],[0.367102,-0.33318,-0.649467,-0.576559],[0,1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p60:=[[491.86,245.94,306.32],[0.367069,-0.333233,-0.649475,-0.57654],[0,1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p70:=[[491.87,245.94,365.47],[0.367044,-0.333262,-0.649484,-0.57653],[0,1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p80:=[[491.86,245.94,429.64],[0.367064,-0.333265,-0.649476,-0.576523],[0,1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p90:=[[497.01,245.93,485.79],[0.367083,-0.333278,-0.649487,-0.576492],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	
+    VAR string ip:="172.21.33.221";
+    VAR num port:=5500;
+    VAR num MAX_WAIT:=5;
+    
+    PROC main()
+        
+        VAR socketdev server_socket;
+        VAR socketdev client_socket;
+        VAR rawbytes recived;
+        VAR string cosita;
+        
+        MoveJ p10, v50, z50, tool0;                                   !Home
+        
+        SocketCreate server_socket;
+        SocketBind server_socket, ip, port;
+        SocketListen server_socket;
+        
+        SocketAccept server_socket, client_socket;
+        
+        TPWrite "Client robot 1 at " + ip + " connected."; 
+        
+        SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita; 
+        
+	MoveJ p20, v50, z50, tool0;
+
+        !SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita; 
+
+	MoveJ p30, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita; 
+
+	MoveJ p40, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita; 
+
+	MoveJ p50, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita; 
+
+	MoveJ p60, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita; 
+
+	MoveJ p70, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita;
+
+	MoveJ p80, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 1";
+       
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita; 
+
+	MoveJ p90, v50, z50, tool0;
+
+	SocketClose server_socket;
+	SocketClose client_socket;
+	
+    ENDPROC
+ENDMODULE
+
+
+Robot 2:
+
+MODULE MainModule
+	CONST robtarget p10:=[[388.82,0.00,564.74],[0.190761,1.73226E-06,0.981636,-7.80695E-07],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p20:=[[474.74,0.00,466.56],[0.190685,1.56254E-06,0.981651,-7.33147E-07],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p30:=[[496.47,-143.01,165.47],[0.485236,0.523793,0.491057,-0.499049],[-1,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p40:=[[496.48,-214.19,179.72],[0.485129,0.523722,0.49131,-0.498979],[-1,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p50:=[[496.48,-214.19,244.81],[0.48508,0.52369,0.491408,-0.498963],[-1,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p60:=[[496.48,-214.19,311.77],[0.485073,0.523661,0.491411,-0.498998],[-1,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p70:=[[496.49,-214.19,424.58],[0.485026,0.523663,0.49156,-0.498895],[-1,-2,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	CONST robtarget p80:=[[496.48,-214.19,515.55],[0.484992,0.523653,0.491623,-0.498876],[-1,-1,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+	
+    VAR string ip:="172.21.33.222";
+    VAR num port:=5500;
+    VAR num MAX_WAIT:=5;
+    
+    
+    PROC main()
+        
+        VAR socketdev server_socket;
+        VAR socketdev client_socket;
+        VAR rawbytes recived;
+        VAR string cosita;
+        
+        MoveJ p10, v50, z50, tool0;                                   !Home
+	
+        SocketCreate server_socket;
+        SocketBind server_socket, ip, port;
+        SocketListen server_socket;
+        
+        SocketAccept server_socket, client_socket;
+        
+        TPWrite "Client robot 2 at " + ip + " connected."; 
+        
+        SocketSend client_socket\Str:="Done robot 2";
+        
+        SocketReceive client_socket\RawData:=recived;
+        UnpackRawBytes recived,1,cosita\ASCII:=14;
+        TPWrite "Message recived: " + cosita; 
+        
+	MoveL p20, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 2";
+
+        SocketReceive client_socket\RawData:=recived;
+        UnpackRawBytes recived,1,cosita\ASCII:=14;
+        TPWrite "Message recived: " + cosita; 
+
+        MoveL p30, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 2";
+
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita;
+
+	MoveL p40, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 2";
+
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita;
+
+	MoveL p50, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 2";
+
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita;
+
+	MoveL p60, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 2";
+
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita;
+
+	MoveL p70, v50, z50, tool0;
+
+        SocketSend client_socket\Str:="Done robot 2";
+
+       	SocketReceive client_socket\RawData:=recived;
+       	UnpackRawBytes recived,1,cosita\ASCII:=14;
+       	TPWrite "Message recived: " + cosita;
+
+	MoveL p80, v50, z50, tool0;
+
+	SocketClose server_socket;
+	SocketClose client_socket;
+
+    ENDPROC
+ENDMODULE
