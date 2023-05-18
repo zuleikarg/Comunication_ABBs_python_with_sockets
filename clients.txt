@@ -40,7 +40,7 @@ MODULE MainModule
         
 	MoveJ p20, v50, z50, tool0;
 
-        !SocketSend client_socket\Str:="Done robot 1";
+        SocketSend client_socket\Str:="Done robot 1";
        
        	SocketReceive client_socket\RawData:=recived;
        	UnpackRawBytes recived,1,cosita\ASCII:=14;
